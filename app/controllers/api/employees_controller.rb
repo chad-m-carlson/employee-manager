@@ -46,12 +46,12 @@ class Api::EmployeesController < ApplicationController
   
   private
 
-  def set_employee
-    @employee = Employee.find(params[:id])
-  end
+    def set_employee
+      @employee = Employee.find(params[:id])
+    end
 
-  def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :email, :phone)
-  end
+    def employee_params
+      params.require(:employee).permit(:first_name, :last_name, :email, :phone)
+    end
 
 end
