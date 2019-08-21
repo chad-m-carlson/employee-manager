@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :employees
   end
   
+  get '*other', to: 'static#index'
 end

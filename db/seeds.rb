@@ -1,4 +1,4 @@
-20.times do
+10.times do
   Employee.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
