@@ -1,0 +1,31 @@
+.u-hoverable-row{
+  &:hover{
+    background-color: rgba($color-secondary, .1) !important;
+  }
+}
+
+.u__tooltip{
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+
+  &--text{
+    visibility: hidden;
+    width: 11rem;
+    background-color: rgba($color-background, .9);
+    font-size: 1.3rem;
+    color:  black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -1rem;
+    left: 2rem;
+  }
+
+  &:hover &--text{
+    visibility: visible;
+  }
+}

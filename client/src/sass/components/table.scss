@@ -1,0 +1,31 @@
+.employee-table{
+  border-collapse: collapse;
+  margin: 0 auto;
+  
+  &__header-row{
+    background-color: $color-primary-light;
+    font-size: 2rem;
+  }
+
+  td,th{
+    border: 1px solid $color-gray-dark;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  td{
+    cursor: pointer;
+  }
+
+  tr:nth-child(even){
+    background-color: rgba($color-primary-light, .3);
+  }
+
+  tr:nth-child(odd){
+    background-color: rgba($color-primary-medium, .3);
+  }
+
+  &__content{
+    font-size: 1.5rem;
+  }
+}

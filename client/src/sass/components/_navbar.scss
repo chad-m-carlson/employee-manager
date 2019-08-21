@@ -1,0 +1,41 @@
+.navbar{
+  height: 4rem;
+  width: 100%;
+  background: linear-gradient(to bottom right, $color-primary-light, $color-primary-medium);
+  color: rgba($color-secondary, .75);
+
+  h1{
+    display: inline-block;
+    padding-top: 1rem;
+    margin-left: 2rem;
+  }
+
+  &__right{
+    height: 4rem;
+    float: right;
+    margin-right: 2rem;
+    
+    &--button{
+      height: 4rem;
+      display: inline-block;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 10rem;
+      padding: 1rem 0 1rem 0;
+      cursor: pointer;
+      margin: 0 .8rem 0 .8rem;
+      transition: all .2s ease;
+
+      &:hover{
+        font-size: 1.35rem;
+        transform: translateY(.3rem);
+      }
+
+      &:active{
+        font-size: 1.25rem;
+        transform: translateY(.3rem);
+      }
+    }
+
+  }
+}
