@@ -1,7 +1,8 @@
-import React, {useState, } from 'react';
+import React, {useState, useEffect } from 'react';
 import Employee from './Employee';
 import EmployeeForm from './EmployeeForm';
 import NavBar from './NavBar';
+import axios from 'axios';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../sass/main.scss';
@@ -10,26 +11,15 @@ import '../sass/main.scss';
 const EmployeeIndex = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState({});
-  const [employees, setEmployees] = useState([
-    {employeeId: 1, 
-     firstName: 'John',
-     lastName: 'Jingleheimer',
-     email: 'John@Jingleheimer.com',
-     phone: '801-555-6666',
-    },
-    {employeeId: 2, 
-     firstName: 'Heather',
-     lastName: 'Jingleheimer',
-     email: 'Heather@Jingleheimer.com',
-     phone: '801-555-7777',
-    },
-    {employeeId: 3,
-    firstName: 'Chad',
-    lastName: 'Carlson',
-    email: 'Chad@carlson.com',
-    phone: '801-55-8888',
-  },
-]);
+  const [employees, setEmployees] = useState([]);
+
+  useEffect( () => {
+    axios.get(`/api/employees`)
+      .then(res => {
+        console.log(res.data)
+        setEmployees(res.data)
+      })
+  }, [])
 
   const handleClick = (employee) => {
     if (showForm === true && selectedEmployee.employeeId !== employee.employeeId) setShowForm(!false)
