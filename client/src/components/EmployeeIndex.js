@@ -12,7 +12,6 @@ const EmployeeIndex = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState({});
   const [employees, setEmployees] = useState([]);
-  // const [reloadEmployees, setReloadEmployees] = useState(true);
 
   useEffect( () => {
     axios.get(`/api/employees`)

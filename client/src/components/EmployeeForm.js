@@ -41,18 +41,6 @@ const EmployeeForm = ({employee, updateEmployee, deleteEmployee, setShowForm, cr
         onSubmit={handleSubmit}  
       >
         <div className="employee-form">
-          {/* <label className="employee-form--label"> ID: 
-            <input
-              className="employee-form--input"
-              type="number"
-              min="1"
-              max="99999999"
-              value={id}
-              onChange={(e) => setid(parseInt(e.target.value))}
-              required={true}
-              disabled={editing}
-            />
-          </label> */}
           <label className="employee-form--label">First Name:
             <input
               className="employee-form--input"
