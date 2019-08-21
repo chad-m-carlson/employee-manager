@@ -12,6 +12,7 @@ const EmployeeIndex = () => {
   const [showForm, setShowForm] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState({});
   const [employees, setEmployees] = useState([]);
+  // const [reloadEmployees, setReloadEmployees] = useState(true);
 
   useEffect( () => {
     axios.get(`/api/employees`)
@@ -21,15 +22,24 @@ const EmployeeIndex = () => {
   }, [])
 
   const handleClick = (employee) => {
-    if (showForm === true && selectedEmployee.id !== employee.id) setShowForm(!false)
+    if (showForm === true && selectedEmployee.id !== employee.id) setShowForm(true)
     else setShowForm(!showForm);
     setSelectedEmployee(employee)
   };
 
   const updateEmployee = (updatedEmployee) => {
     const currentEmployees = employees.filter( e => e.id !== updatedEmployee.id)
-    setEmployees([...currentEmployees, {...updatedEmployee}]);
+    axios.put(`/api/employees/${updatedEmployee.id}`, updatedEmployee)
+    .then(res => setEmployees([...currentEmployees, res.data]))
+      .catch(res => console.log(res));
     setShowForm(false);
+  };
+
+  const createNewEmployee = (newEmployee) => {
+    axios.post(`/api/employees`, newEmployee)
+      .then(res => setEmployees([...employees, res.data]))
+      .catch(res => console.log(res));
+    setShowForm(false)
   };
 
   const deleteEmployee = (employee) => {
@@ -86,6 +96,8 @@ const EmployeeIndex = () => {
             <th className="employee-table__header-row">ID &nbsp;
               <div className="u__tooltip">
                 <FontAwesomeIcon 
+                  size="xs"
+                  className="employee-table__header-row--icon"
                   onClick={() => sortTable('id')}
                   icon={faSort} 
                   />
@@ -95,6 +107,7 @@ const EmployeeIndex = () => {
             <th className="employee-table__header-row">First Name &nbsp;
             <div className="u__tooltip">
               <FontAwesomeIcon 
+                size="xs"
                 onClick={() => sortTable('first_name')}
                 icon={faSort} 
                 />
@@ -104,6 +117,7 @@ const EmployeeIndex = () => {
             <th className="employee-table__header-row">Last name &nbsp;
             <div className="u__tooltip">
               <FontAwesomeIcon 
+                size="xs"
                 onClick={() => sortTable('last_name')}
                 icon={faSort} 
                 />
@@ -131,6 +145,7 @@ const EmployeeIndex = () => {
             employee={selectedEmployee}
             updateEmployee={updateEmployee}
             deleteEmployee={deleteEmployee}
+            createNewEmployee={createNewEmployee}
             setShowForm={setShowForm}
           />
         }
