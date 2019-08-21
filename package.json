@@ -12,7 +12,6 @@
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
   },
-  },
   "keywords": [],
   "author": "",
   "license": "ISC"
