@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic Employee Management Application implementing all CRUD actions with ReactJS and a Ruby on Rails back end.
 
-Things you may want to cover:
+Sass used for styling
 
-* Ruby version
+Used a mix of custom SQL queries and Active Record queries to use PostgreSQL database.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Deployed URL: https://employee-manager-app-rails.herokuapp.com/
